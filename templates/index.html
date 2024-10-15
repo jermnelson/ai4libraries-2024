@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+<div class="row">
+  <div class="col-3">
+   <h3>Topics</h3>
+   <ul class="list-group">
+   {% for page in pages[1:] %}
+    <li class="list-group-item bg-white"><a href="{{ page.url }}">{{ page.title }}</a></li>
+   {% endfor %}
+   </ul>
+  </div>
+  <div class="col">
+   <h2>Welcome!</h2>
+   <p>
+      This presentation will demonstrate a proof-of-concept back-end 
+      module called <a href="https://github.com/folio-labs/edge-ai/">"edge-ai"</a> that 
+      uses Large Language Models (LLMs) to automate the creation of FOLIO 
+      JSON records from textual prompts and uploaded images of books.
+   </p> 
+  </div>
+</div>
+{% endblock %}
