@@ -1,1 +1,42 @@
 {% extends "base.html" %}
+
+
+{% block main %}
+<div class="row">
+  <div class="col-4">
+   <h2>What is FOLIO?</h2>
+   <p>
+     FOLIO, an acronym for <strong><em>F</em></strong>uture <strong><em>o</em></strong>f 
+     <strong><em>L</em></strong>ibraries <strong><em>i</em></strong>s <strong><em>O</em>p</strong>en,
+     is an open-source library services platform that combines APIs from multiple back-end microservices with a 
+     front-end Javascript Single Page Application. 
+   </p>
+   <p>
+     Academic, public, and national libraries all use FOLIO, either through a managed hosting service or
+     by hosting FOLIO on-site. <a href="https://libraries.stanford.edu">Stanford University Libraries</a>
+     migrated to a self-hosted FOLIO installation in 2023. The Library of Congress is currently migrating
+     to FOLIO, with other notable academic libraries like University of Chicago and Cornell University 
+     already using FOLIO. 
+   </p>
+   <div class="card bg-white text-black" style="width: 24rem;">
+     <div class="card-body">
+       <h5 class="card-title">Eureka</h5>
+       <h6 class="card-subtitle mb-2">Upcoming FOLIO Refactoring</h6>
+       <p class="card-text">
+         A major refactoring of FOLIO's backend, called <a href="https://folio-org.atlassian.net/wiki/spaces/PLATFORM/pages/193134643/Folio+Eureka+Platform+Overview" class="card-link">Eureka</a>, is being lead 
+         by <a href="https://www.ebsco.com/academic-libraries/products/ebsco-folio">EBSCO</a>,
+         a major code contributor and hosting provider for FOLIO. Eureka replaces FOLIO's
+         current bespoke API gateway, <a href="https://github.com/folio-org/okapi" class="card-link">Okapi</a> with a
+         combination of open-source products, <a href="https://konghq.com/">Kong</a> and 
+         <a href="https://www.keycloak.org/">Keycloak</a> that will make FOLIO more scalable and
+         robust.
+       </p>
+     </div>
+   </div> 
+  </div>
+  <div class="col">
+   <img src="images/folio-screen-shot.png" alt="Screen-shot of FOLIO Poppy Bugfest Environment">
+
+  </div>
+</div>
+{% endblock %}
