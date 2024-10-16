@@ -1,1 +1,30 @@
 {% extends "base.html" %}
+
+{% block main %}
+<div class="row">
+  <div class="col-4">
+    <p>In the blog post, <a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/">The Shift from Models 
+    to Compound AI Systems</a>, a group of Berkeley AI Researchers note the difference between using Large Language 
+    Models (LLMs) as monolithic standalone systems versus using LLMs as components in larger, compound 
+    systems that include both LLMs and other technology. They list the following reasons to use 
+    Compound AI Systems instead of relying just on an LLM:
+   </p>
+   <ul>
+     <li>Some tasks are easier to improve via system design</li>
+     <li>Systems can be dynamic</li>
+     <li>Improving control and trust is easier with systems</li>
+     <li>Performance goals vary widely</li>
+   </ul>
+  </div>
+  <div class="col-8">
+   <h3>Compound AI Systems &amp; FOLIO</h3>
+   <p>
+     Building on the concept of Compound AI systems, AI, particularly LLMs, is providing an approach for the
+     research that will be demonstrated in this presentation.
+  </p>
+  <div class="bg-white">
+    <img src="images/folio-compound-ai.png" alt="FOLIO Compound AI System">
+  </div> 
+  </div>
+</div>
+{% endblock %}
