@@ -1,1 +1,21 @@
 {% extends "base.html" %}
+
+
+{% block main %}
+<div class="row">
+  <div class="col">
+   <h3>Step one</h3>
+   User enters a text prompt like
+   <pre>
+     Please catalog the book, "Revenge of the Tipping Point" by Malcolm Gladwell published in 2024 by Little, Brown
+     in New York"
+   </pre>
+   and sends to either through a Jupyter notebook, command-line, or user interface to the 
+   <a href="https://github.com/folio-labs/edge-ai/">Edge-AI</a> API <pre>/inventory/instance/generate</pre>
+   endpoint.
+  </div>
+  <div class="col">
+    <h3>Edge-AI</h3> 
+  </div> 
+</div>
+{% endblock %}
