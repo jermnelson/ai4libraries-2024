@@ -38,7 +38,7 @@
           
             <li><a class="dropdown-item" href="upload-cataloging.html">Upload Image Cataloging Example</a></li>
           
-            <li><a class="dropdown-item" href="edge-ai-future-dev.html">Edge-AI Future Development</a></li>
+            <li><a class="dropdown-item" href="edge-ai-next-steps.html">Edge-AI Next Steps</a></li>
           
             <li><a class="dropdown-item" href="conclusion.html">Conclusion</a></li>
           
@@ -73,15 +73,60 @@
   <div class="bg-white text-dark border border-primary-subtle border-2 rounded p-2">
     <div class="mb-3">
      <label for="edge-ai-url" class="form-label ">Edge AI URI:</label>
-     <input type="text" class="form-control" id="edge-ai-url" value="http://localhost:8000/inventory/instance/generate"></input>
+     <input type="text" class="form-control" id="edge-ai-url" value="http://localhost:8000/inventory/from_image"></input>
     </div>
     <div class="input-group mb-3">
       <input type="file" class="form-control" id="book-cover-upload">
-      <button class="btn btn-outline-secondary" type="button" py-click="upload_image">Upload</button>
+      <button class="btn btn-outline-secondary" type="button" onclick="upload_image()">Upload</button>
     </div>
   </div>
  </div>
+ <div class="col">
+    <h3>Edge-AI</h3>
+    <div class="card invisible" style="width: 36rem;" id="edge-ai-card">
+      <div class="card-body">
+        <h5 class="card-title">Edge-AI Response</h5>
+        <label for="edge-ai-response">Instance Record</label>
+        <pre id="edge-ai-response"></pre>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="row invisible mt-1" id="instance-generation-dag">
+  <div class="col">
+   <h3>Apache Airflow Instance Generation DAG</h3>
+   <p>Similar to the previous <a href="prompt-cataloging.html">example</a>, the 
+   Edge-AI endpoint, <strong>/inventory/from_image</strong>, triggers the 
+   <strong>instance_generation</strong> DAG to enhance and add the new FOLIO
+   Instance record to FOLIO.
+   </p>
+  </div>
+  <div class="col-8">
+    <img src="images/instance-generation-dag.png" alt="Graph of Instance Generation DAG">
+    <hr>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#folioInventoryScreenshot">
+      FOLIO Instance Screenshot      
+    </button>
+  </div> 
+</div>
+
+<div class="modal fade" id="folioInventoryScreenshot" tabindex="-1" aria-labelledby="folioInventoryScreenshotlabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="folioInventoryScreenshotlabel">FOLIO Inventory Screenshot</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="images/down-at-the-shore-cookbook-folio-view.png"  class="img-fluid" alt="FOLIO Inventory screenshot of the Down at the Shore Cookbook Instance">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
+</div>
+
 
     
     <div class="text-center mt-3">
@@ -94,8 +139,8 @@
        
        <button class="btn btn-primary" disabled>Upload Image Cataloging Example</button>
       
-        <a class="btn btn-success" href="edge-ai-future-dev.html">
-         Edge-AI Future Development
+        <a class="btn btn-success" href="edge-ai-next-steps.html">
+         Edge-AI Next Steps
          <i class="bi bi-arrow-right-circle"></i>
         </a>
       
@@ -108,17 +153,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     
-<script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
 <script>
-  from js import document 
+async function upload_image(event) {
+  const bookUpload = document.getElementById("book-cover-upload");
+  const edgeAIURL = document.getElementById("edge-ai-url");
+  const edgeAICard = document.getElementById("edge-ai-card");
+  const edgeAIResponse = document.getElementById("edge-ai-response");
+  const instanceGenerationDAG = document.getElementById("instance-generation-dag");
 
+  const formData = new FormData();
 
-  async def upload_image(event):
-      edge_ai_url = document.getElementById("edge-ai-url")
+  formData.append("image", bookUpload.files[0]);
 
-      book_cover_upload = document.getElementById("book-cover-upload")
+  const response = await fetch(edgeAIURL.value, {
+    method: "POST",
+    body: formData
+  });
 
-  
+  if (!response.ok) {
+    console.log("Failed to POST image", response);
+  } else {
+    result = await response.json();
+    edgeAICard.classList.remove("invisible");
+    edgeAIResponse.innerHTML = JSON.stringify(result, null, 2);
+    instanceGenerationDAG.classList.remove("invisible");
+  }
+}
 </script>
 
   </body>

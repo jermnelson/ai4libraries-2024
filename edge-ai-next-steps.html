@@ -58,68 +58,72 @@
   <div class="container">
     
      <h2>Edge-AI and FOLIO at Stanford University Libraries</h2>
-     <h1>Resources</h1>
+     <h1>Edge-AI Next Steps</h1>
     
     
 <div class="row">
   <div class="col">
-   <h3>FOLIO</h3>
-   <ul>
-    <li><a href="https://folio.org/">FOLIO Home-page</a></li>
-    <li><a href="https://dev.folio.org/reference/api/">FOLIO API Documentation</a></li>
-    <li><a href="https://folio-org.atlassian.net/wiki/spaces/PLATFORM/pages/193134643/Folio+Eureka+Platform+Overview">Eureka Platform Overview</a></li>
-    <li><a href="https://github.com/folio-org/okapi">Okapi Github Repository</a></li>
-   </ul>
+   <h3>Retrieval Augmented Generation (RAG)</h3> 
+   <p>
+     To improve the quality of LLM outputs and reduce hallucinations, we have started 
+     investigating various Retrieval Augmented Generation (RAG) approaches to FOLIO JSON
+     records.
+   </p>
+   <p>
+     An initial proof-of-concept for FOLIO RAG was implemented in 
+    <a href="https://github.com/AnswerDotAI/RAGatouille">RAGatouille</a> with mixed results. Because
+    FOLIO (and Airflow) use <a href="https://www.postgresql.org/">Postgres</a> database, our next 
+    RAG iteration will explore using the Postgre extension, 
+    <a href="https://github.com/pgvector/pgvector">pgvector</a>.
+   </p>
+   <p>
+    Another option would be use the FOLIO search engine (currently using either 
+    <a href="https://www.elastic.co/elasticsearch">Elasticsearch</a> or 
+    <a href="https://opensearch.org/">OpenSearch</a>).
+   </p>
   </div>
   <div class="col">
-   <h3>Edge-AI &amp; AI Workflows</h3>
-   <ul>
-    <li><a href="https://github.com/folio-labs/ai-workflows/">AI Workflows Github Repository</a></li>
-    <li><a href="https://github.com/folio-labs/edge-ai/">Edge-AI Github Repository</a></li>
-   </ul>
+   <h3>FOLIO Function-Calling</h3>
+   <p>
+     ChatGPT's <a href="https://platform.openai.com/docs/guides/function-calling">function calling</a> allows
+     you to define function definitions that the models can use to interact with your API.
+   </p>
+   <p>
+     Here is an example <a href="https://chatgpt.com/share/67127c34-5a00-800e-9a8f-34e322051719">chat</a> using
+     Invoice Storage raw RAML at <a href="https://raw.githubusercontent.com/folio-org/mod-inventory-storage/refs/heads/master/ramls/instance-storage.raml">instance-storage.raml</a>.
+   </p>
+  </div>
+</div>
+<div class="row"
+  <div class="col">
+   <h3>Dynamic DAGs</h3>
+   <p>
+     An intriguing possibility that is possible with the current <a href="https://github.com/folio-labs/edge-ai">edge-ai</a>
+     and the Airflow-based <a href="https://github.com/folio-labs/ai-workflows">AI Workflows</a> combination is to generate
+     dynamic DAGs based on the user or system prompts.
+   </p>
   </div>
 </div>
 <div class="row">
-  <div class="col">
-    <h3>AI &amp; Large Language Models (LLMs)</h3>
-    <ul>
-     <li><a href="https://chatgpt.com/">ChatGPT</a></li>
-     <li><a href="https://claude.ai">Claude</a></li>
-     <li><a href="https://www.gstatic.com/gumdrop/sustainability/google-2024-environmental-report.pdf">Google Environmental Report 2024</a></li>
-     <li><a href="https://arxiv.org/abs/2310.10383">Privacy in Large Language Models: Attacks, Defenses and Future Directions</a>
-</li>
-     <li><a href="https://hai.stanford.edu/news/how-much-research-being-written-large-language-models">How Much Research Is Being Written by Large Language Models?</a></li>
-     <li><a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/reducing-the-environmental-impact-of-generative-ai-a-guide-for/">Reducing the Environmental Impact of Generative AI: a Guide for Practitioners</a></li>
-     <li><a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/">The Shift from Models 
-    to Compound AI Systems</a></li>
 
-    </ul>
-  </div>
-  <div class="col">
-    <h3>Software</h3>
-    <ul>
-      <li><a href="https://apache.airflow.org/">Apache Airflow</a></li>
-      <li><a href="https://dspy-docs.vercel.app/intro/">DSPy</a></li>
-      <li><a href="https://www.elastic.co/elasticsearch">Elasticsearch</a></li>
-      <li><a href="https://fastapi.tiangolo.com/">FastAPI</a></li>
-      <li><a href="https://github.com/pgvector/pgvector">pgvector</a></li>
-      <li><a href="https://www.postgresql.org/">Postgres</a></li>
-      <li><a href="https://opensearch.org/">OpenSearch</a></li>
-      <li><a href="https://github.com/AnswerDotAI/RAGatouille">RAGatouille</a></li>
-    </ul>
-  </div>
+
 </div>
 
     
     <div class="text-center mt-3">
       <div class="btn-group" role="group" aria-label="Previous Next Topic buttons">
       
-        <a class="btn btn-warning" href="conclusion.html">
+        <a class="btn btn-warning" href="upload-cataloging.html">
          <i class="bi bi-arrow-left-circle"></i>
-         Conclusion
+         Upload Image Cataloging Example
         </a>
        
-       <button class="btn btn-primary" disabled>Resources</button>
+       <button class="btn btn-primary" disabled>Edge-AI Next Steps</button>
+      
+        <a class="btn btn-success" href="conclusion.html">
+         Conclusion
+         <i class="bi bi-arrow-right-circle"></i>
+        </a>
       
       </div>
     </div>
