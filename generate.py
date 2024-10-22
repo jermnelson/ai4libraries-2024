@@ -16,8 +16,7 @@ if __name__ == "__main__":
       {"url": "challenges.html", "title": "Challenges using LLMs"},
       {"url": "prompt-cataloging.html", "title": "Prompt Cataloging Example"},
       {"url": "upload-cataloging.html", "title": "Upload Image Cataloging Example"},
-      {"url": "function-calling.html", "title": "FOLIO and Edge-AI Function Calling"},
-      {"url": "dynamic-dags.html", "title": "Dynamic Airflow DAGs with Edge-AI"},
+      {"url": "edge-ai-future-dev.html", "title": "Edge-AI Future Development"},
       {"url": "conclusion.html", "title": "Conclusion"},
       {"url": "resources.html", "title": "Resources" }
     ]
