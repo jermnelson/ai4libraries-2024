@@ -10,6 +10,8 @@
     multimodal large language model like ChatGPT 4o to upload a book cover and 
     generate a FOLIO Instance JSON record. The <strong>edge-ai</strong> function then 
     calls the same Airflow DAG to enhance and add the Instance to FOLIO.
+
+    <button class="btn btn-success" onclick="show_all()">Show all</button>
   </p>
   <div class="bg-white text-dark border border-primary-subtle border-2 rounded p-2">
     <div class="mb-3">
@@ -105,6 +107,14 @@ async function upload_image(event) {
     edgeAIResponse.innerHTML = JSON.stringify(result, null, 2);
     instanceGenerationDAG.classList.remove("invisible");
   }
+}
+
+async function show_all(event) {
+  const edgeAICard = document.getElementById("edge-ai-card");
+  const instanceGenerationDAG = document.getElementById("instance-generation-dag");
+
+  edgeAICard.classList.remove("invisible");
+  instanceGenerationDAG.classList.remove("invisible");
 }
 </script>
 {% endblock %}

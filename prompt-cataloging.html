@@ -72,6 +72,7 @@
      The <strong>edge-ai</strong> takes the prompt and using a ChatGPT model and a 
      <a href="https://dspy-docs.vercel.app/intro/">DSPy</a> prompt <a href="https://github.com/folio-labs/edge-ai/blob/2f9c60dfd0b658b71c86ec4d36aa4c79d25f7384/src/edge_ai/inventory/signatures/instance.py#L30">signature</a>,
      sends the prompt to the model to generate the beginning of a JSON <a href="https://docs.folio.org/docs/metadata/inventory/">Inventory</a> Instance record.
+    <button class="btn btn-success" py-click="show_all">Show all</button> 
    </p>
    <div class="bg-white text-dark border border-primary-subtle border-2 rounded p-2">
     <div class="mb-3">
@@ -85,7 +86,7 @@ Please catalog the book, "Revenge of the Tipping Point" by Malcolm Gladwell publ
      </textarea>
     </div>
     <div class="mb-3">
-      <button class="btn btn-primary" py-click="submit_prompt">Submit</button>     
+      <button class="btn btn-primary" py-click="submit_prompt">Submit</button>
     </div>
    </div>
   </div>
@@ -214,6 +215,12 @@ Please catalog the book, "Revenge of the Tipping Point" by Malcolm Gladwell publ
      
       instance_generation_dag.classList.remove("invisible")
 
+  async def show_all(event):
+      edge_ai_card = document.getElementById("edge-ai-card")
+      instance_generation_dag = document.getElementById("instance-generation-dag")
+
+      edge_ai_card.classList.remove("invisible")
+      instance_generation_dag.classList.remove("invisible")
 
 
 
