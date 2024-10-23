@@ -12,10 +12,10 @@
 </div>
 <div class="row">
   <div class="col-4">
-    <h1>Privacy Concerns in Large Language Models</h1>
+    <h3>Privacy Concerns in Large Language Models</h3>
      <p>
       With the widespread release of Large Language Models (LLMs) by various  organizations,
-      <a href="https://arxiv.org/abs/2310.10383">significant privacy issues</a> including:</p>
+      <a href="https://arxiv.org/abs/2310.10383">significant privacy issues</a> have been observed including</p>
      <ul>
        <li><strong>Personal details in training data</strong>: Names, addresses, and financial information may
        be included in the training data for these models. </li>
@@ -32,15 +32,15 @@
       society.</p>
    <h4>Sources</h4>
    <ul>
-     <li><strong>Training data</strong> -- over or under sample underrepresented groups, biased in 
+     <li><strong>Training data</strong> -- over or under sampling underrepresented groups, biases in 
          labeling by excluding or over-representing certain categories or characteristics.
      </li>
-     <li><strong>Algorithms</strong> -- based on biased data could perpetrate underlying flaw, programmers 
+     <li><strong>Algorithms</strong> -- based on biased data could perpetrate underlying flaws or programmers 
          introduce personal bias intentionally or unintentionally
      </li>
      <li><strong>Proxies</strong> -- Unintended consequences of using proxies for characteristics in the population</li>
      <li><strong>Cognitive </strong>-- people's experiences and preferences can introduce and favor bias or 
-  weighting of outcomes or selection of data.</li>
+  weighting of outcomes or the selection of data.</li>
    </ul>
   </div>
   <div class="col-4">
@@ -49,28 +49,28 @@
      Since the initial release of ChatGPT 3.5 in 2022, a major criticism of Large 
      Language Models (LLMs) has been the tendency of these models to fabricate factually
      incorrect statements. LLMs generate text by predicting the most likely continuation token
-     based on the prompt's text, context, and model internal weights. Unlike a deductive process, LLMs
+     based on the prompt's text, context, and model's internal weights. Unlike a deductive process, LLMs
      do not directly reference their training source material to generate responses. 
    </p>
    <h4>Types of Hallucinations</h4>
    <ul>
     <li><strong>Fact-conflicting</strong> -- 1+1 = 3</li>
     <li><strong>Input-conflicting</strong> -- LLM summarizes an article and includes details not present
-     in the original article.</li>
-    <li><strong>Context-conflicting</strong> -- inconsistent or self-contradiction in output 
+     in the original article</li>
+    <li><strong>Context-conflicting</strong> -- inconsistent or self-contradiction in the model's outputs 
    </ul>
    <h4>Mitigation</h4>
    <ul>
      <li><strong>Chain-of-thought (COT)</strong>: A technique prompting the model to break down its reasoning process
-     into sequential steps,explaining how it arrived to its final answer.</li>
+     into sequential steps, explaining how it arrived to its final answer.</li>
      <li><strong>One-shot and Few-shot Prompts</strong>: Techniques that provide context by offering sample responses in 
       a given format, enabling the model to infer patterns for consistency and accuracy in its
       answers.</li>
      <li><strong>Retrieval Augmented Generation (RAG)</strong>: Combines contextual examples with the prompt, grounding the
      model in factual, current material from external sources, and reducing the model's dependence on 
-      outdated or incomplete information training data.</li>
+      outdated or incomplete information in its training data.</li>
     <li><strong>Reinforcement Learning with Human Feedback (RLHF)</strong>: A fine-tuning technique of adding direct human 
-     feedback to a model's responses by rewarding factual responses and penalizing hallucinations.  </li>
+     feedback to a model's responses by rewarding factual responses and penalizing hallucinations.</li>
    </ul>
   </div>
 </div>
@@ -78,7 +78,7 @@
   <div class="col-4">
    <h3>Academic Fraud &amp; Copyright</h3>
     <p>
-     One of the immediate concerns regarding academic fraud is the use of 
+     One of the immediate concerns regarding academic fraud in the use of 
      Large Language Models (LLMs) that generate convincing and coherent text that
      students and researchers can pass off as original work. The growth and inclusion 
      of generative text into academic articles has been widespread, particularly in 
@@ -101,17 +101,17 @@
      increased energy usage of their customer-facing AI efforts, including the training and inference
      of their flagship <a href="https://gemini.google.com/">Gemini LLM</a>.
    </p>
-   <p>In a 2024 <a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/reducing-the-environmental-impact-of-generative-ai-a-guide-for/">report</a>  by Microsoft, offer four suggestions to reduce the environmental impact of these models. 
+   <p>A 2024 <a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/reducing-the-environmental-impact-of-generative-ai-a-guide-for/">report</a> by Microsoft, offers four suggestions to reduce the environmental impact of these models. 
     These suggestions are:</p>
    <ul>
-     <li><strong>Model Selection</strong>: Pre-trained models use significantly less power than training new models</li>
+     <li><strong>Model Selection</strong>: Pre-trained models use significantly less power than training new models.</li>
      <li><strong>Model Improvement</strong>: Prompt engineering, RAG, and Fine-tuning can all be used to improve 
-      functionality of existing models without needed to train the models</li>
+      functionality of existing models without needing to train new models</li>
      <li><strong>Model Deployment</strong>: Using Model-as-a-Service (MaaS), the costs and energy requirements are less 
       because the MaaS infrastructure is typically optimized by the vendor.
     </li>
-    <li><strong>Model Evaluation</strong>: When using these models, users should evaluate the costs and performance in order to assess the applicability 
-  of their models.
+    <li><strong>Model Evaluation</strong>: When using these models, users should evaluate the costs and performance in 
+     order to assess the applicability of their models.</li>
   </div>
 </div>
 {% endblock %}
