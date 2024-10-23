@@ -16,7 +16,7 @@ if __name__ == "__main__":
       {"url": "challenges.html", "title": "Challenges using LLMs"},
       {"url": "prompt-cataloging.html", "title": "Prompt Cataloging Example"},
       {"url": "upload-cataloging.html", "title": "Upload Image Cataloging Example"},
-      {"url": "edge-ai-future-dev.html", "title": "Edge-AI Future Development"},
+      {"url": "edge-ai-next-steps.html", "title": "Edge-AI Next Steps"},
       {"url": "conclusion.html", "title": "Conclusion"},
       {"url": "resources.html", "title": "Resources" }
     ]

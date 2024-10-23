@@ -5,8 +5,8 @@
 <div class="row">
   <div class="col">
    <p>
-     User enters a text prompt and sends to either through a Jupyter notebook, command-line, or user interface to the 
-     <a href="https://github.com/folio-labs/edge-ai/">Edge-AI</a> API <strong>/inventory/instance/generate</strong>
+     A user enters a text prompt and sends it through a Jupyter notebook, command-line interface, or user interface to the 
+     <a href="https://github.com/folio-labs/edge-ai/">edge-ai</a> API <strong>/inventory/instance/generate</strong>
      endpoint.
    </p>
    <p>
@@ -31,6 +31,17 @@ Please catalog the book, "Revenge of the Tipping Point" by Malcolm Gladwell publ
    </div>
   </div>
   <div class="col">
+    <div class="alert alert-info" role="alert">
+      We are using a FOLIO snapshot environment for demonstrating <strong>edge-ai</strong>
+      &amp; <strong>ai-workflows</strong> in this and the next example. 
+      <br>
+      The FOLIO snapshot environment:
+      <ul>
+         <li><strong>URL:</strong> <a href="https://folio-snapshot-2.dev.folio.org/" class="alert-link">folio-snapshot-2.dev.folio.org</a></li>
+         <li><strong>Login:</strong> diku_admin</li>
+         <li><strong>Password:</strong> admin</li>
+      </ul>
+    </div>
     <h3>Edge-AI</h3>
     <div class="card invisible" style="width: 36rem;" id="edge-ai-card">
       <div class="card-body">
@@ -54,10 +65,10 @@ Please catalog the book, "Revenge of the Tipping Point" by Malcolm Gladwell publ
     The DAG then has different tasks to
    </p>
     <ul>
-      <li>Retrieve the reference data containing UUIDs of 
-        the types of data like contributor, contributor name type, and instance type 
-        used in FOLIO.</li>
-      <li>Attempt to match the Instance Record to existing Instance records using RAG
+      <li>Retrieve the reference data containing UUIDs 
+        for data types like contributor, contributor name type, and instance type 
+        used in FOLIO</li>
+      <li>Attempt to match the Instance Record to existing Instance records using RAG,
         and use a second prompt to the model to assign a match probability</li>
       <li>If a match is made, return the existing Instance UUID</li>
       <li>Or, create a new JSON Instance in FOLIO</li>  
@@ -65,8 +76,30 @@ Please catalog the book, "Revenge of the Tipping Point" by Malcolm Gladwell publ
   </div>
   <div class="col-8">
     <img src="images/instance-generation-dag.png" alt="Graph of Instance Generation DAG">
+    <hr>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#folioInventoryScreenshot">
+      FOLIO Instance Screenshot      
+    </button>
   </div> 
 </div>
+
+<div class="modal fade" id="folioInventoryScreenshot" tabindex="-1" aria-labelledby="folioInventoryScreenshotlabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="folioInventoryScreenshotlabel">FOLIO Inventory Screenshot</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="images/revenge-tipping-point-folio-view.png"  class="img-fluid" alt="FOLIO Inventory screenshot of the Revenge of the Tipping Point Instance">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block more_js %}

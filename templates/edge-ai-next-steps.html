@@ -2,24 +2,75 @@
 
 {% block main %}
 <div class="row">
-  <div class="col-5">
-   <h3>FOLIO Function-Calling</h3>
+  <div class="col">
+   <h3>Retrieval Augmented Generation (RAG)</h3> 
    <p>
-     ChatGPT's <a href="https://platform.openai.com/docs/guides/function-calling">function calling</a> allows
-     you to define function definitions that the models can use to interact with your API.
+     To improve the quality of LLM outputs and reduce hallucinations, we have begun 
+     investigating various Retrieval Augmented Generation (RAG) approaches to FOLIO JSON
+     records.
    </p>
    <p>
-     Here is an example <a href="https://chatgpt.com/share/67127c34-5a00-800e-9a8f-34e322051719">chat</a> using
-     Invoice Storage raw RAML at <a href="https://raw.githubusercontent.com/folio-org/mod-inventory-storage/refs/heads/master/ramls/instance-storage.raml">instance-storage.raml</a>.
+     An initial proof-of-concept for FOLIO RAG was implemented in 
+    <a href="https://github.com/AnswerDotAI/RAGatouille">RAGatouille</a> with mixed results. Since
+    FOLIO (and Airflow) use <a href="https://www.postgresql.org/">PostgresSQL</a> database, our next 
+    RAG iteration will explore using the PostgresSQL extension, 
+    <a href="https://github.com/pgvector/pgvector">pgvector</a>.
+   </p>
+   <p>
+    Another option is to utilize the FOLIO search engine which currently supports 
+    <a href="https://www.elastic.co/elasticsearch">Elasticsearch</a> or 
+    <a href="https://opensearch.org/">OpenSearch</a> but only for Inventory records.
    </p>
   </div>
   <div class="col">
+   <h3>FOLIO Function-Calling</h3>
+   <p>
+     ChatGPT's <a href="https://platform.openai.com/docs/guides/function-calling">function calling</a> feature 
+     allows you to define function definitions that the models can use to interact with your API.
+   </p>
+   <p>
+     Here is an example <a href="https://chatgpt.com/share/671837f3-7e90-800e-abf3-04bd64845b9d">chat</a> using
+     Invoice Storage raw RAML at <a href="https://raw.githubusercontent.com/folio-org/mod-inventory-storage/refs/heads/master/ramls/instance-storage.raml">instance-storage.raml</a> to create Open AI function definitions in JSON.
+   </p>
+   <p>
+     Given the large number of FOLIO API <a href="https://dev.folio.org/reference/api/endpoints/">endpoints</a> 
+     (currently at 1,500!) to manually code using these endpoints is a daunting task. Generating function definitions 
+     with a LLM would reduce the manual coding effort while providing a method to keep 
+     <strong>edge-ai</strong> current with the available endpoints as FOLIO updates and adds new endpoints in future
+     releases. 
+   </p>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col">
    <h3>Dynamic DAGs</h3>
    <p>
-     An intriguing possibility that is possible with the current <a href="https://github.com/folio-labs/edge-ai">edge-ai</a>
+     An intriguing possibility with the current <a href="https://github.com/folio-labs/edge-ai">edge-ai</a>
      and the Airflow-based <a href="https://github.com/folio-labs/ai-workflows">AI Workflows</a> combination is to generate
      dynamic DAGs based on the user or system prompts.
    </p>
+   <p>
+    The DAGs could be generated, uploaded to Airflow server, and then activated through the 
+    <a href="https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html">Airflow REST API</a>.    
+   </p>
   </div>
+  <div class="col">
+   <h3>Alternative Interfaces</h3>
+   <p>
+    As demonstrated by the file upload example, <strong>edge-ai</strong> could offer alternative interfaces like
+    uploaded images and even speech to interact with FOLIO. These interfaces could be provided by a mobile app that would
+    allow a user to take a photo and upload it to the <strong>edge-ai</strong> to start cataloging a physical item.  
+   </p>
+   <p>
+    Another exciting possibility is to enable speech-to-text that would staff users to interact with FOLIO through a 
+    speech model like <a href="https://github.com/openai/whisper">Whisper</a>. 
+   </p>
+
+  </div>
+</div>
+<div class="row">
+
+
 </div>
 {% endblock %}
